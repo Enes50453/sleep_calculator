@@ -28,16 +28,26 @@ class _ScreenAlarm extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
+        shadowColor: Colors.grey[900],
+        backgroundColor: Colors.grey[900],
         leading: IconButton(
-          icon: Icon(Icons.info_outline),
+          icon: Icon(
+            Icons.info_outline,
+            color: Colors.indigoAccent,
+          ),
           onPressed: () => Navigator.pushNamed(context, "/info"),
         ),
-        title: const Text('Sleep Calculator'),
+        title: const Text('Sleep Calculator',
+            style: TextStyle(color: Colors.indigoAccent)),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: Icon(
+              Icons.notifications,
+              color: Colors.amberAccent[200],
+            ),
             onPressed: () {
               FlutterAlarmClock.showAlarms();
             },
@@ -47,12 +57,32 @@ class _ScreenAlarm extends State {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 10),
+            Divider(
+              height: 2.0,
+              color: Colors.amberAccent[200],
+              thickness: 1.5,
+              indent: 0,
+              endIndent: 0,
+            ),
             Container(
               child: Text("When do you want to wake up?",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigoAccent[100])),
             ),
             hourMinute12H(),
-            Container(
+            SizedBox(height: 10),
+            Divider(
+              height: 2.0,
+              color: Colors.amberAccent[200],
+              thickness: 1.5,
+              indent: 0,
+              endIndent: 0,
+            ),
+            SizedBox(height: 10),
+            /*Container(
               margin: EdgeInsets.symmetric(vertical: 50),
               child: new Text(
                 _wakeTime.hour.toString().padLeft(2, '0') +
@@ -60,23 +90,45 @@ class _ScreenAlarm extends State {
                     _wakeTime.minute.toString().padLeft(2, '0'),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-            ),
+            ),*/
             Container(
               child: Text("When do you go to bed?",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigoAccent[100])),
             ),
             Container(
                 child: TextField(
+              style: TextStyle(color: Colors.indigoAccent),
               readOnly: true,
               controller: timeController,
-              decoration:
-                  InputDecoration(hintText: 'Please select your bed time'),
+              decoration: InputDecoration(
+                  hintText: 'Please select your bed time',
+                  hintStyle: TextStyle(color: Colors.indigoAccent[100])),
               onTap: () async {
                 var time = await showTimePicker(
-                  initialTime: TimeOfDay.now(),
-                  context: context,
-                );
-                timeController.text = time!.format(context);
+                    initialTime: TimeOfDay.now(),
+                    context: context,
+                    builder: (context, child) {
+                      return Theme(
+                        data: Theme.of(context).copyWith(
+                          colorScheme: ColorScheme.dark(
+                            primary: Colors.amberAccent, // <-- SEE HERE
+                            onPrimary: Colors.deepPurpleAccent, // <-- SEE HERE
+                            onSurface: Colors.indigoAccent, // <-- SEE HERE
+                          ),
+                          textButtonTheme: TextButtonThemeData(
+                            style: TextButton.styleFrom(
+                              primary: Colors.indigoAccent, // button text color
+                            ),
+                          ),
+                        ),
+                        child: child!,
+                      );
+                    });
+                if (time == null) return;
+                timeController.text = time.format(context);
                 setState(() {
                   calculate();
                   _sleepTime = DateTime(_sleepTime.year, _sleepTime.month,
@@ -85,7 +137,16 @@ class _ScreenAlarm extends State {
                 });
               },
             )),
-            Container(
+            SizedBox(height: 20),
+            Divider(
+              height: 2.0,
+              color: Colors.amberAccent[200],
+              thickness: 1.5,
+              indent: 0,
+              endIndent: 0,
+            ),
+            SizedBox(height: 20),
+            /*Container(
               margin: EdgeInsets.symmetric(vertical: 50),
               child: new Text(
                 _sleepTime.hour.toString().padLeft(2, '0') +
@@ -95,14 +156,18 @@ class _ScreenAlarm extends State {
                     _sleepTime.second.toString().padLeft(2, '0'),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-            ),
+            ),*/
             Container(
               child: Text("How long does it take you to fall asleep?",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigoAccent[100])),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 50),
+              margin: EdgeInsets.symmetric(vertical: 20),
               child: Slider(
+                activeColor: Colors.amberAccent[200],
                 value: _currentSliderValue,
                 max: 50,
                 divisions: 5,
@@ -121,7 +186,14 @@ class _ScreenAlarm extends State {
                 },
               ),
             ),
-            Container(
+            Divider(
+              height: 2.0,
+              color: Colors.amberAccent[200],
+              thickness: 1.5,
+              indent: 0,
+              endIndent: 0,
+            ),
+            /*Container(
               margin: EdgeInsets.symmetric(vertical: 50),
               child: new Text(
                 _fallingAsleepTime.hour.toString().padLeft(2, '0') +
@@ -131,17 +203,17 @@ class _ScreenAlarm extends State {
                     _fallingAsleepTime.second.toString().padLeft(2, '0'),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-            ),
-            Container(
+            ),*/
+            /*Container(
               margin: EdgeInsets.symmetric(vertical: 50),
-              child: new Text(_difference.inMinutes.toString()),
-            ),
-            Container(
+              child: new Text(totalMinute.toString()),
+            ),*/
+            /*Container(
               margin: EdgeInsets.symmetric(vertical: 50),
               child: new Text(
                   "sleep cycles = $calculatedCycle + $calculatedHours + $calculatedMinutes"),
-            ),
-            Container(
+            ),*/
+            /*Container(
               margin: EdgeInsets.symmetric(vertical: 50),
               child: new Text(
                 _withFAT.hour.toString().padLeft(2, '0') +
@@ -151,17 +223,22 @@ class _ScreenAlarm extends State {
                     _withFAT.second.toString().padLeft(2, '0'),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-            ),
+            ),*/
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.indigoAccent[700],
+        foregroundColor: Colors.amberAccent[200],
+        focusColor: Colors.amberAccent[200],
         onPressed: () {
           setAlarm();
         },
-        tooltip: 'Stateless',
-        child: const Icon(Icons.arrow_circle_right),
+        child: const Icon(
+          Icons.alarm,
+          color: Colors.amberAccent,
+        ),
       ),
     );
   }
@@ -170,12 +247,14 @@ class _ScreenAlarm extends State {
     _withFAT = DateTime(_withFAT.year, _withFAT.month, _withFAT.day,
         _sleepTime.hour, _sleepTime.minute + _fallingAsleepTime.minute);
     _difference = _wakeTime.difference(_withFAT);
-    totalMinute = _difference.inMinutes.toInt();
+    totalMinute = _difference.inMinutes >= 0
+        ? _difference.inMinutes.toInt()
+        : _difference.inMinutes.toInt() * (-1) + 24 * 60;
     calculatedCycle = (totalMinute / remCycle).floor();
     calculatedHours = ((calculatedCycle * remCycle) / 60).floor();
     calculatedMinutes = (calculatedCycle * remCycle) % 60;
-    _calculatedAlarm = DateTime(_wakeTime.year, _wakeTime.month, _wakeTime.day,
-        calculatedHours, calculatedMinutes);
+    _calculatedAlarm = DateTime(_withFAT.year, _withFAT.month, _withFAT.day,
+        _withFAT.hour + calculatedHours, _withFAT.minute + calculatedMinutes);
   }
 
   setAlarm() {
@@ -186,6 +265,14 @@ class _ScreenAlarm extends State {
 
   Widget hourMinute12H() {
     return new TimePickerSpinner(
+      normalTextStyle: TextStyle(
+        color: Colors.indigoAccent,
+        fontSize: 20,
+      ),
+      highlightedTextStyle: TextStyle(
+        color: Colors.indigoAccent,
+        fontSize: 35,
+      ),
       spacing: 30,
       isForce2Digits: true,
       time: DateTime.now(),

@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         "/alarm": (BuildContext context) => ScreenAlarm(),
-        "c": (BuildContext context) => SceenInfo()
+        "/info": (BuildContext context) => SceenInfo()
       },
       initialRoute: "/alarm", //açılış sayfası
     );
