@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sleep_calculator/screens/info_page.dart';
 import 'package:flutter_sleep_calculator/screens/sleep_calculator.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         "/alarm": (BuildContext context) => ScreenAlarm(),
-        //"/stateless": (BuildContext context) => SceenStateless()
+        "c": (BuildContext context) => SceenInfo()
       },
       initialRoute: "/alarm", //açılış sayfası
     );
