@@ -32,32 +32,14 @@ class _ScreenAlarm extends State {
       appBar: AppBar(
         shadowColor: Colors.grey[900],
         backgroundColor: Colors.grey[900],
-        leading: IconButton(
-          icon: Icon(
-            Icons.info_outline,
-            color: Colors.indigoAccent,
-          ),
-          onPressed: () => Navigator.pushNamed(context, "/info"),
-        ),
         title: const Text('Sleep Calculator',
             style: TextStyle(color: Colors.indigoAccent)),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.amberAccent[200],
-            ),
-            onPressed: () {
-              FlutterAlarmClock.showAlarms();
-            },
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: 30),
             Divider(
               height: 2.0,
               color: Colors.amberAccent[200],
@@ -104,8 +86,16 @@ class _ScreenAlarm extends State {
               readOnly: true,
               controller: timeController,
               decoration: InputDecoration(
-                  hintText: 'Please select your bed time',
-                  hintStyle: TextStyle(color: Colors.indigoAccent[100])),
+                alignLabelWithHint: true,
+                icon: Icon(
+                  Icons.access_time,
+                  color: Colors.indigoAccent,
+                ),
+                hintText: 'Please select your bed time',
+                hintStyle: TextStyle(
+                  color: Colors.indigoAccent[100],
+                ),
+              ),
               onTap: () async {
                 var time = await showTimePicker(
                     initialTime: TimeOfDay.now(),
@@ -167,7 +157,7 @@ class _ScreenAlarm extends State {
             Container(
               margin: EdgeInsets.symmetric(vertical: 20),
               child: Slider(
-                activeColor: Colors.amberAccent[200],
+                activeColor: Colors.indigoAccent,
                 value: _currentSliderValue,
                 max: 50,
                 divisions: 5,
@@ -227,18 +217,48 @@ class _ScreenAlarm extends State {
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.grey[900],
+        child: new Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.info_outline,
+                color: Colors.indigoAccent,
+              ),
+              onPressed: () => Navigator.pushNamed(context, "/info"),
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.amberAccent[200],
+              ),
+              onPressed: () {
+                FlutterAlarmClock.showAlarms();
+              },
+            ),
+          ],
+        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
+        highlightElevation: 50,
+        elevation: 15,
+        splashColor: Colors.amberAccent[200],
+        hoverColor: Colors.amberAccent[200],
         backgroundColor: Colors.indigoAccent[700],
         foregroundColor: Colors.amberAccent[200],
         focusColor: Colors.amberAccent[200],
         onPressed: () {
           setAlarm();
         },
-        child: const Icon(
+        icon: Icon(
           Icons.alarm,
           color: Colors.amberAccent,
         ),
+        label: Text("Set Alarm"),
       ),
     );
   }
