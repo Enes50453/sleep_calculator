@@ -160,8 +160,8 @@ class _ScreenAlarm extends State {
                 activeColor: Colors.indigoAccent,
                 value: _currentSliderValue,
                 max: 50,
-                divisions: 5,
-                label: _currentSliderValue.round().toString(),
+                divisions: 10,
+                label: _currentSliderValue.round().toString() + "Min",
                 onChanged: (double value) {
                   setState(() {
                     calculate();
@@ -218,7 +218,9 @@ class _ScreenAlarm extends State {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.grey[900],
+        shape: CircularNotchedRectangle(),
+        notchMargin: 25,
+        color: Colors.black87,
         child: new Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -244,8 +246,8 @@ class _ScreenAlarm extends State {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton.extended(
-        highlightElevation: 50,
-        elevation: 15,
+        highlightElevation: 40,
+        elevation: 10,
         splashColor: Colors.amberAccent[200],
         hoverColor: Colors.amberAccent[200],
         backgroundColor: Colors.indigoAccent[700],

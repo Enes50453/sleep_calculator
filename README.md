@@ -1,16 +1,23 @@
-# flutter_sleep_calculator
 
-A new Flutter project.
+# SLEEP CALCULATOR APP
 
-## Getting Started
+This app is calculate your approximate sleep cycles and gently wake you up while you’re in your lightest sleep phase. For use the app;
+* Enter the time you want to wake up,
+* Enter your bedtime,
+* Choose your approximate time to fall asleep
+* And the app will will set your phone alarm automatically.
 
-This project is a starting point for a Flutter application.
+## Stages of Sleep
+When thinking about getting the sleep you need, it’s normal to focus on how many hours of sleep you get. While sleep duration is undoubtedly important, it’s not the only part of the equation.
+It’s also critical to think about sleep quality and whether the time spent sleeping is actually restorative. Progressing smoothly multiple times through the sleep cycle, composed of four separate sleep stages, is a vital part of getting truly high-quality rest.
 
-A few resources to get you started if this is your first Flutter project:
+![App Screenshot](https://github.com/Enes50453/user_list/blob/master/screenshots/ss1.jpeg?raw=true)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Each sleep stage plays a part in allowing your mind and body to wake up refreshed. Understanding the sleep cycle also helps explain how certain sleep disorders, including insomnia and obstructive sleep apnea can impact a person’s sleep and health.
+## What Is the Sleep Cycle?
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Sleep is not uniform. Instead, over the course of the night, your total sleep is made up of several rounds of the sleep cycle, which is composed of four individual stages. In a typical night, a person goes through four to six sleep cycles. Not all sleep cycles are the same length, but on average they last about 90 minutes each.
+
+![App Screenshot](https://github.com/Enes50453/user_list/blob/master/screenshots/ss1.jpeg?raw=true)
+
+* Referance: www.sleepfoundation.org/stages-of-sleep
