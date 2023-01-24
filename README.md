@@ -5,7 +5,7 @@ This app is calculate your approximate sleep cycles and gently wake you up while
 * Enter the time you want to wake up,
 * Enter your bedtime,
 * Choose your approximate time to fall asleep
-* And the app will will set your phone alarm automatically.
+* And the app will set your phone alarm automatically.
 ![App Screenshot](https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss3.jpeg)
 ![App Screenshot](https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss4.jpeg)
 ## Stages of Sleep
