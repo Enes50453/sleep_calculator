@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         "/alarm": (BuildContext context) => ScreenAlarm(),
         "/info": (BuildContext context) => SceenInfo()
       },
-      initialRoute: "/alarm", //açılış sayfası
+      initialRoute: "/alarm",
     );
   }
 }
