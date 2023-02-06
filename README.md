@@ -6,8 +6,8 @@ This app is calculate your approximate sleep cycles and gently wake you up while
 * Enter your bedtime,
 * Choose your approximate time to fall asleep
 * And the app will set your phone alarm automatically.
-![App Screenshot](https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss3.jpeg | width=100)
-![App Screenshot](https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss4.jpeg | width=100)
+![App Screenshot](https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss3.jpeg =250x250)
+![App Screenshot](https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss4.jpeg =250x250)
 ## Stages of Sleep
 When thinking about getting the sleep you need, it’s normal to focus on how many hours of sleep you get. While sleep duration is undoubtedly important, it’s not the only part of the equation.
 It’s also critical to think about sleep quality and whether the time spent sleeping is actually restorative. Progressing smoothly multiple times through the sleep cycle, composed of four separate sleep stages, is a vital part of getting truly high-quality rest.
