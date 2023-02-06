@@ -9,13 +9,14 @@ This app is calculate your approximate sleep cycles and gently wake you up while
 
 <table>
   <tr>
-    <td>First Screen Page</td>
-     <td>Holiday Mention</td>
-     <td>Present day in purple and selected day in pink</td>
+    <td>Alarm Page</td>
+     <td>Clock</td>
+     <td>Info Page</td>
   </tr>
   <tr>
     <td><img src="https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss3.jpeg" width=270 height=480></td>
     <td><img src="https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss4.jpeg" width=270 height=480></td>
+    <td><img src="https://github.com/Enes50453/sleep_calculator/blob/master/screenshots/ss5.jpeg" width=270 height=480></td>
   </tr>
  </table>
 
